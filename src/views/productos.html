@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <% include partials/head.html%>
+        <title>
+            <%= title %>
+        </title>
+</head>
+
+<body>
+    <% include partials/navegacion.html %>
+        <h3>
+            <%= title%>
+        </h3>
+        <!--Inicia lista de productos staticos-->
+        <div class="card-body">
+            <ul>
+                <% for(var i =0;i < productos.length; i++){%>
+                    <li>
+                        <%='indice '+ productos[i].id + ' : '+ productos[i].name %>
+                    </li>
+                    <%} %>
+            </ul>
+            <!--Termina la lista de productos staticos-->
+
+            <!--Inicia formulario de agregar productos staticos-->
+
+            <form action="/nuevoProducto" method="POST">
+                <input type="text" name="nuevoP" id="nuevoP">
+                <button>
+                Agregar
+            </button>
+            </form>
+        </div>
+        <!--Termina formulario de agregar productos staticos-->
+
+
+        <!--Inicia script que aplica la propiedad focus al input-->
+        <script>
+            const txtNewItem = document.getElementById('nuevoP');
+            txtNewItem.focus();
+        </script>
+        <!--Termina el script que aplica la propiedad focus al input-->
+        <% include partials/footer.html%>
+</body>
+
+</html>
